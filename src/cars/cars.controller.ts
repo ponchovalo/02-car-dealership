@@ -37,11 +37,8 @@ export class CarsController {
 
     //Metodo para la eliminacion de un elemento del arreglo de carros
     @Delete(':id')
-    deleteCar( @Param('id', ParseIntPipe ) id: number ) {
-        return {
-            method: 'DELETE',
-            id
-        }  
+    deleteCar( @Param('id', ParseUUIDPipe ) id: string ) {
+        return this.carsService.delete(id) 
     }
 
 }
